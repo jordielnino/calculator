@@ -5,37 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <link rel="stylesheet" hrefs="style.css">
+    <link rel="stylesheet" href="shish.css">
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" class="screen" id="screen" placeholder="0">
+<style>
+    /* Your CSS code here (unchanged) */
+</style>
+<div class="calculator">
+    <input type="text" class="screen" id="screen" placeholder="0">
 
-        <button class="symbol" onclick="wipe()">AC</button>
-        <button class="symbol" onclick="wipe()">C</button>
-        <button class="symbol" onclick="show('/')">/</button>
-        <button class="symbol" onclick="show('*')">*</button>
+    <button class="symbol" onclick="wipe()">AC</button>
+    <button class="symbol" onclick="wipe()">C</button>
+    <button class="symbol" onclick="show('/')">/</button>
+    <button class="symbol" onclick="show('*')">*</button>
 
-        <button class="number" onclick="show('7')">7</button>
-        <button class="number" onclick="show('8')">8</button>
-        <button class="number" onclick="show('9')">9</button>
-        <button class="symbol" onclick="show('-')">-</button>
+    <button class="number" onclick="show('7')">7</button>
+    <button class="number" onclick="show('8')">8</button>
+    <button class="number" onclick="show('9')">9</button>
+    <button class="symbol" onclick="show('-')">-</button>
 
-        <button class="number" onclick="show('4')">4</button>
-        <button class="number" onclick="show('5')">5</button>
-        <button class="number" onclick="show('6')">6</button>
-        <button class="symbol" onclick="show('+')">+</button>
+    <button class="number" onclick="show('4')">4</button>
+    <button class="number" onclick="show('5')">5</button>
+    <button class="number" onclick="show('6')">6</button>
+    <button class="symbol" onclick="show('+')">+</button>
 
-        <button class="number" onclick="show('1')">1</button>
-        <button class="number" onclick="show('2')">2</button>
-        <button class="number" onclick="show('3')">3</button>
-        <button class="symbol" onclick="show('.')">.</button>
+    <button class="number" onclick="show('1')">1</button>
+    <button class="number" onclick="show('2')">2</button>
+    <button class="number" onclick="show('3')">3</button>
+    <button class="symbol" onclick="show('.')">.</button>
 
-        <button class="number" onclick="show('(')">(</button>
-        <button class="number" onclick="show('0')">0</button>
-        <button class="number" onclick="show(')')">)</button>
-        <button class="symbol" onclick="calc('=')">=</button>
-    </div>
-    <script> src="script.js" </script>
+    <button class="number" onclick="show('(')">(</button>
+    <button class="number" onclick="show('0')">0</button>
+    <button class="number" onclick="show(')')">)</button>
+    <button class="symbol" onclick="calc('=')">=</button>
+</div>
+
+<script>
+    // JavaScript code for the calculator functionality
+    let screenValue = "";
+    const screen = document.getElementById("screen");
+
+    function show(value) {
+        screenValue += value;
+        screen.value = screenValue;
+    }
+
+    function wipe() {
+        screenValue = "";
+        screen.value = screenValue;
+    }
+
+    function calc() {
+        try {
+            screenValue = eval(screenValue);
+            screen.value = screenValue;
+        } catch (error) {
+            screen.value = "Error";
+        }
+    }
+</script>
 </body>
 </html>
